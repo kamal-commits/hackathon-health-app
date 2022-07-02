@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { extendTheme, NativeBaseProvider } from 'native-base';
-import { StyleSheet, View } from 'react-native';
-import Query from './screens/Query';
+import { Box, extendTheme, NativeBaseProvider, ScrollView } from 'native-base';
+import { StyleSheet } from 'react-native';
+import Login from './screens/Authentication/Login';
 export default function App() {
 	const theme = extendTheme({
 		// backgroundColor: 'green.100',
@@ -36,23 +36,45 @@ export default function App() {
 					};
 				},
 			},
+			Heading: {
+				baseStyle: (props) => {
+					const { colorScheme } = props;
+
+					return {
+						_light: {
+							color: colorScheme[500],
+						},
+						_dark: {
+							color: 'amber.500',
+						},
+
+						// fontSize: 25,
+					};
+				},
+			},
 		},
 	});
 	return (
-		<NativeBaseProvider theme={theme}>
-			<View style={styles.container}>
-				{/* <Text>Open up App.js to sstart working on your app!</Text> */}
-				<Query />
-				<StatusBar style="auto" />
-			</View>
-		</NativeBaseProvider>
+		<>
+			<NativeBaseProvider theme={theme}>
+				<Box safeArea style={styles.container} h={'full'}>
+					<ScrollView width={'full'} h={'full'}>
+						{/* <Text>Open up App.js to sstart working on your app!</Text> */}
+						{/* <BookAppointment /> */}
+						{/* <Signup /> */}
+						<Login />
+					</ScrollView>
+					<StatusBar style="auto" />
+				</Box>
+			</NativeBaseProvider>
+		</>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
+		// backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
