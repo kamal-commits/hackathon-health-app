@@ -1,12 +1,17 @@
-import { Box, Center } from 'native-base';
+import { Box, Center, Image, Input } from "native-base";
+
 export default function Home() {
-	return (
-		<Center flex={1} px="3">
-			<Box>
-				<Center>
-					<Image source={require('../assests/images/doctor.png')} />
-				</Center>
-			</Box>
-		</Center>
-	);
+  return (
+    <Center>
+      <Image
+        alt="Alternate Text"
+        source={{
+          uri: "https://wallpaperaccess.com/full/317501.jpg",
+        }}
+        size="xl"
+      />
+      <Input mx="3" placeholder="Input" w="75%" maxWidth="300px" />
+      <Input mx="3" placeholder="Input" w="75%" maxWidth="300px" />
+    </Center>
+  );
 }
