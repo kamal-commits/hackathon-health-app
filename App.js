@@ -1,8 +1,7 @@
-import { StatusBar } from 'expo-status-bar'
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import BookAppointment from './screens/BookAppointment'
-import { NativeBaseProvider, Box, extendTheme } from 'native-base'
+import { StatusBar } from 'expo-status-bar';
+import { extendTheme, NativeBaseProvider } from 'native-base';
+import { StyleSheet, View } from 'react-native';
+import Query from './screens/Query';
 export default function App() {
 	const theme = extendTheme({
 		// backgroundColor: 'green.100',
@@ -23,7 +22,7 @@ export default function App() {
 		components: {
 			Text: {
 				baseStyle: (props) => {
-					const { colorScheme } = props
+					const { colorScheme } = props;
 
 					return {
 						_light: {
@@ -34,20 +33,20 @@ export default function App() {
 						},
 
 						// fontSize: 25,
-					}
+					};
 				},
 			},
 		},
-	})
+	});
 	return (
 		<NativeBaseProvider theme={theme}>
 			<View style={styles.container}>
 				{/* <Text>Open up App.js to sstart working on your app!</Text> */}
-				<BookAppointment />
-				<StatusBar style='auto' />
+				<Query />
+				<StatusBar style="auto" />
 			</View>
 		</NativeBaseProvider>
-	)
+	);
 }
 
 const styles = StyleSheet.create({
@@ -57,4 +56,4 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
-})
+});
