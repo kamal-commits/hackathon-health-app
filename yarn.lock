@@ -1524,7 +1524,7 @@
 
 "@native-base/icons@^0.0.11":
   version "0.0.11"
-  resolved "https://registry.npmjs.org/@native-base/icons/-/icons-0.0.11.tgz"
+  resolved "https://registry.yarnpkg.com/@native-base/icons/-/icons-0.0.11.tgz#aeb3215ace21da30e264bbbb5c5e2136a5d25612"
   integrity sha512-atpcvUwQOs83ikUC6x098vDluBJdws5+TcRH/D+Ol63Rh6WYQaOIEQuMKZi9498iVEdqky7CHEDywvtDQt62nQ==
   dependencies:
     "@babel/core" "^7.17.2"
