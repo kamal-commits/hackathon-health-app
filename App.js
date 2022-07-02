@@ -8,6 +8,8 @@ export default function App() {
 			// Add new color
 			primary: {
 				10: '#0957DE',
+				100: '#000000',
+				200: '#ffffff',
 			},
 			// Redefinig only one shade, rest of the color will remain same.
 			amber: {
@@ -19,16 +21,14 @@ export default function App() {
 			initialColorMode: 'dark',
 		},
 		components: {
-			Text: {
-				baseStyle: (props) => {
-					const { colorScheme } = props;
-
+			Input: {
+				baseStyle: () => {
 					return {
 						_light: {
-							color: colorScheme[500],
+							color: 'primary.200',
 						},
 						_dark: {
-							color: 'amber.500',
+							color: 'primary.100',
 						},
 
 						// fontSize: 25,
