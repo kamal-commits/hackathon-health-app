@@ -1,45 +1,58 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { Box, Container, Heading, HStack, Image, VStack } from 'native-base'
+import {
+	Box,
+	Container,
+	Heading,
+	HStack,
+	Image,
+	Pressable,
+	VStack,
+} from 'native-base'
 
-const ModuleCad = ({ image1, text1, image2, text2 }) => {
+const ModuleCad = ({ image1, text1, image2, text2, navigation, route1, route2 }) => {
 	return (
 		<Box alignItems={'center'} width='full'>
 			<HStack justifyContent='space-around' width={'100%'} alignItems='center'>
-				<Box style={styles.card}>
-					<Image
-						source={{
-							uri: image1,
-						}}
-						alt='ALT'
-						size='xl'
-						style={styles.image}
-					/>
-					<Heading size='sm' textAlign={'center'}>
-						{text1}
-					</Heading>
-				</Box>
-				{/* <Box></Box> */}
-				{image2 && text2 && (
+				<Pressable onPress={() => navigation.navigate(route1)}>
 					<Box style={styles.card}>
 						<Image
 							source={{
-								uri: image2,
+								uri: image1,
 							}}
 							alt='ALT'
 							size='xl'
+							style={styles.image}
 						/>
 						<Heading size='sm' textAlign={'center'}>
-							{text2}
+							{text1}
 						</Heading>
 					</Box>
+				</Pressable>
+
+				{/* <Box></Box> */}
+				{image2 && text2 && (
+					<Pressable onPress={() => navigation.navigate(route2)}>
+						<Box style={styles.card}>
+							<Image
+								source={{
+									uri: image2,
+								}}
+								alt='ALT'
+								size='xl'
+							/>
+							<Heading size='sm' textAlign={'center'}>
+								{text2}
+							</Heading>
+						</Box>
+					</Pressable>
 				)}
 			</HStack>
 		</Box>
 	)
 }
 
-const Home = () => {
+const Home = ({ navigation }) => {
 	const cardData = [
 		{
 			image1:
@@ -48,43 +61,35 @@ const Home = () => {
 				'https://thumbs.dreamstime.com/b/search-engine-result-pag-vector-page-showing-results-query-web-concept-smartphone-192167587.jpg',
 			text1: 'Appointment',
 			text2: 'Queries',
-			route1: '',
-			route2: '',
+			route1: 'Appointments',
+			route2: 'Query',
 		},
-		// {
-		// 	image1:
-		// 		'https://img.freepik.com/free-vector/people-using-online-appointment-booking-app_74855-5556.jpg?w=2000',
-
-		// 	text1: 'Appointment',
-		// 	route1: '',
-		// },
 	]
 	return (
 		<Box w='full'>
 			<VStack>
 				{/* Detail Section */}
 				<VStack
-					height={'300'}
+					height={'250'}
 					bg='primary.800'
 					padding={'5'}
-					paddingTop='20'
 					space={1}
 					borderBottomRightRadius={20}
 					borderBottomLeftRadius={20}
 				>
-					<Heading size='xl' style={styles.textWhite}>
+					<Heading size='xl' style={styles.textWhite} paddingTop={10}>
 						Hey Kamal
 					</Heading>
 					<Heading size='md' style={styles.textWhite}>
 						Good Morning !
 					</Heading>
 					<Heading size='sm' style={styles.textWhite}>
-						Hope You are Doing Well &#128512;
+						Hope You Have a Good Day &#128512;
 					</Heading>
 				</VStack>
 				<Box>
 					{cardData.map((val, i) => {
-						return <ModuleCad key={i} {...val} />
+						return <ModuleCad key={i} {...val} navigation={navigation} />
 					})}
 				</Box>
 				{/*  Card Section */}

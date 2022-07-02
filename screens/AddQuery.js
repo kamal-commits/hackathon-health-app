@@ -57,7 +57,7 @@ const AddQuery = () => {
 	return (
 		<Box>
 			<AuthLayout
-				heading='Add Query'
+				// heading='Add Query'
 				btnText='Raise Query'
 				inputFields={inputFields}
 				setForm={setForm}

@@ -8,7 +8,7 @@ import CustomAddForm from '../../components/Form/CustomAddForm'
 import AuthLayout from './AuthLayout'
 import { signup } from '../../utils/apiServices'
 
-const Signup = () => {
+const Signup = ({ navigation }) => {
 	const [userType, setUserType] = useState('DOCTOR')
 	const [formStep, setFormStep] = useState(true)
 	const [form, setForm] = useState({

@@ -32,6 +32,7 @@ const Login = ({ navigation }) => {
 				heading='Login'
 				btnText='Login'
 				handleSubmit={handleLogin}
+				navigation={() => navigation.navigate('Signup')}
 			/>
 		</Box>
 	)

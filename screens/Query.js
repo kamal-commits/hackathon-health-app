@@ -14,6 +14,7 @@ import {
 } from 'native-base'
 import React from 'react'
 import { StyleSheet } from 'react-native'
+import Status from '../components/Status'
 const data = [
 	{
 		title: 'Pain in heart',
@@ -171,13 +172,13 @@ function PreviousQuery({ setModal, setData }) {
 				<Text>Comments : {data[0].comments.length}</Text>
 				<Flex direction='row' justifyContent={'space-between'}>
 					<Text>Date : 22/22/22</Text>
-					<Text>Status : {data[0].active ? 'Active' : 'Closed'}</Text>
+					<Status status='Pending' />
 				</Flex>
 			</Pressable>
 		</Box>
 	)
 }
-export default function Query() {
+export default function Query({ navigation }) {
 	const [query, setQuery] = React.useState('')
 	const [data, setData] = React.useState(null)
 	const [modalVisible, setModalVisible] = React.useState(false)
@@ -192,17 +193,17 @@ export default function Query() {
 			// borderWidth={1}
 		>
 			<VStack h={'full'} space={3}>
-				<Input
+				{/* <Input
 					color={'black'}
 					onChangeText={(e) => setQuery(e)}
 					placeholder='Search...'
 					value={query}
 					w='100%'
-				/>
+				/> */}
 				<Box
 					width='100%'
 					style={{ display: 'flex' }}
-					px={6}
+					px={2}
 					py={3}
 					justifyContent={'center'}
 				>
@@ -223,6 +224,7 @@ export default function Query() {
 				// width='xs'
 				width={60}
 				height={60}
+				onPress={() => navigation.navigate('AddQuery')}
 			>
 				<AddIcon color='white' />
 			</Button>

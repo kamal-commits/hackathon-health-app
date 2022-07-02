@@ -12,11 +12,12 @@ import {
 } from 'native-base'
 import CustomInput from '../Form/CustomInput'
 import CustomHeading from '../Form/CustomHeading'
+import Status from '../Status'
 
 const DetailCard = ({ children }) => {
 	return (
 		<Box position={'relative'} w={'full'}>
-			<CustomHeading heading='Appointments' />
+			{/* <CustomHeading heading='Appointments' /> */}
 
 			<Box
 				nativeID='11111'
@@ -60,15 +61,7 @@ const DetailCard = ({ children }) => {
 								alignItems='center'
 							>
 								<VStack>{children}</VStack>
-								<Text
-									bg='primary.600'
-									padding='2'
-									color='white'
-									borderRadius={10}
-									fontWeight='bold'
-								>
-									{true ? 'Active' : 'Closed'}
-								</Text>
+								<Status status='Pending' />
 							</Flex>
 						</Pressable>
 					</Box>

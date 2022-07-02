@@ -31,7 +31,7 @@ const CustomInput = ({
 							onChangeText={handleCHange}
 							type={type}
 							value={value}
-							variant={label === 'Search' ? 'outline' : 'underlined'}
+							// variant={label === 'Search' ? 'outline'}
 							size={'lg'}
 							placeholder={label === 'Search' ? label : ''}
 						/>
@@ -40,7 +40,7 @@ const CustomInput = ({
 							onChangeText={handleCHange}
 							type={type}
 							value={value}
-							variant='underlined'
+							// variant='underlined'
 							size={'lg'}
 						/>
 					)}

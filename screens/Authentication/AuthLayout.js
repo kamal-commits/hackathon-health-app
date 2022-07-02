@@ -5,15 +5,16 @@ import CustomButton from '../../components/Form/CustomButton'
 import { IMAGES } from '../../utils/constants'
 
 const AuthLayout = ({
-	heading = 'Signup',
+	heading = false,
 	btnText = 'Register',
 	form,
 	setForm,
 	inputFields,
 	handleSubmit,
+	navigation = () => {},
 }) => {
 	return (
-		<Box h={'full'} width={'100%'}>
+		<Box width={'100%'}>
 			{heading === 'Login' && (
 				<Image
 					source={{
@@ -22,15 +23,18 @@ const AuthLayout = ({
 					alt='Alternate Text'
 					size='xl'
 					width={'full'}
-					height={230}
+					height={250}
 					// marginTop='50'
 				/>
 			)}
-			<Heading color='primary.500' fontWeight='bold' margin={4} fontSize='4xl'>
-				{' '}
-				{heading} !
-			</Heading>
-			<CustomAddForm form={form} setForm={setForm} array={inputFields} />
+			{heading && (
+				<Heading color='primary.500' fontWeight='bold' margin={4} fontSize='4xl'>
+					{heading} !
+				</Heading>
+			)}
+			<Box margin={!heading ? 4 : 0}>
+				<CustomAddForm form={form} setForm={setForm} array={inputFields} />
+			</Box>
 
 			{heading === 'Login' && (
 				<Box>
@@ -42,6 +46,7 @@ const AuthLayout = ({
 							color='primary.700'
 							fontWeight={'bold'}
 							style={{ textDecorationLine: 'underline' }}
+							onPress={navigation}
 						>
 							Register Here{' '}
 						</Heading>

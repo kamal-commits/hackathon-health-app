@@ -5,12 +5,12 @@ const CustomView = ({ children, style = {} }) => {
 	return (
 		<Box flex={1} safeArea>
 			<ScrollView
-				_contentContainerStyle={{ flex: 1 }}
-				flex={1}
-				width={'full'}
-				h={'full'}
+			// _contentContainerStyle={{ flex: 1 }}
+			// flex={1}
+			// width={'full'}
+			// h={'full'}
 			>
-				<View style={[styles.root, style]}>{children}</View>
+				<Box style={[styles.root, style]}>{children}</Box>
 			</ScrollView>
 		</Box>
 	)
