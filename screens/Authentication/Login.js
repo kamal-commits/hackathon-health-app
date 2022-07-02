@@ -9,6 +9,7 @@ const Login = () => {
 		email: 'kamal@gmsail.com',
 		password: 'password',
 	});
+	console.log('form value ', form);
 	const inputFields = [
 		{ label: 'Email', value: form?.email, name: 'email' },
 		{

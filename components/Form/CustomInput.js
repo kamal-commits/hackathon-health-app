@@ -18,9 +18,8 @@ const CustomInput = ({
 	value,
 	inputType = 'text',
 }) => {
-	// console.log({ type })
 	const handleCHange = (e) => {
-		setForm({ ...form, [name]: e.target.value })
+		setForm({ ...form, [name]: e })
 	}
 	return (
 		<Box style={styles.container}>
@@ -29,19 +28,19 @@ const CustomInput = ({
 					<FormControl.Label>{label}</FormControl.Label>
 					{inputType === 'text' ? (
 						<Input
-							onChange={handleCHange}
+							onChangeText={handleCHange}
 							type={type}
 							value={value}
 							variant='underlined'
-							size={'xl'}
+							size={'lg'}
 						/>
 					) : (
 						<TextArea
-							onChange={handleCHange}
+							onChangeText={handleCHange}
 							type={type}
 							value={value}
 							variant='underlined'
-							size={'xl'}
+							size={'lg'}
 						/>
 					)}
 
