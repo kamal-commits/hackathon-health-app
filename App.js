@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { Box, extendTheme, NativeBaseProvider, ScrollView } from 'native-base';
-import { StyleSheet } from 'react-native';
 import Login from './screens/Authentication/Login';
 export default function App() {
 	const theme = extendTheme({
@@ -55,27 +54,35 @@ export default function App() {
 		},
 	});
 	return (
-		<>
-			<NativeBaseProvider theme={theme}>
-				<Box safeArea style={styles.container} h={'full'}>
-					<ScrollView width={'full'} h={'full'}>
-						{/* <Text>Open up App.js to sstart working on your app!</Text> */}
-						{/* <BookAppointment /> */}
-						{/* <Signup /> */}
-						<Login />
-					</ScrollView>
-					<StatusBar style="auto" />
-				</Box>
-			</NativeBaseProvider>
-		</>
+		<NativeBaseProvider theme={theme}>
+			<Box
+				flex={1}
+				safeArea
+				//  style={styles.container}
+			>
+				<ScrollView
+					_contentContainerStyle={{ flex: 1 }}
+					flex={1}
+					width={'full'}
+					h={'full'}
+				>
+					{/* <Text>Open up App.js to sstart working on your app!</Text> */}
+					{/* <BookAppointment /> */}
+					<Login />
+
+					{/* <Text>sdsadsad</Text> */}
+				</ScrollView>
+				<StatusBar style="auto" />
+			</Box>
+		</NativeBaseProvider>
 	);
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		// backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});
+// const styles = StyleSheet.create({
+// 	container: {
+// 		flex: 1,
+// 		// backgroundColor: '#fff',
+// 		alignItems: 'center',
+// 		justifyContent: 'center',
+// 	},
+// });

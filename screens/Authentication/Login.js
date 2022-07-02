@@ -1,7 +1,7 @@
+import { Box } from 'native-base';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import AuthLayout from './AuthLayout';
-
 const Login = () => {
 	const [form, setForm] = useState({
 		email: '',
@@ -17,16 +17,7 @@ const Login = () => {
 		},
 	];
 	return (
-		<View
-			style={
-				{
-					// flex: 1,
-					// alignContent: 'center',
-					// alignItems: 'center',
-					// height: '100%',
-				}
-			}
-		>
+		<Box h={'full'} alignItems="center">
 			<AuthLayout
 				form={form}
 				setForm={setForm}
@@ -34,7 +25,7 @@ const Login = () => {
 				heading="Login"
 				btnText="Login"
 			/>
-		</View>
+		</Box>
 	);
 };
 

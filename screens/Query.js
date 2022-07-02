@@ -62,7 +62,7 @@ function CustomModal({ modalVisible, setModalVisible, data }) {
 						{data.title}
 					</Modal.Header>
 					<ScrollView>
-						<Modal.Body height={'full'}>
+						<Modal.Body elevation={20} shadow="#fffff" height={'full'}>
 							{data.comments.map((eachComment, key) => {
 								return (
 									<>
@@ -173,15 +173,15 @@ export default function Query() {
 	const [modalVisible, setModalVisible] = React.useState(false);
 	return (
 		<Box
+			nativeID="11111"
 			paddingTop={5}
+			flex={1}
 			position={'relative'}
-			safeArea
-			h={'full'}
 			px={1}
 			w={'full'}
-			style={styles.docDescription}
+			borderWidth={1}
 		>
-			<VStack space={3}>
+			<VStack h={'full'} space={3}>
 				<Input
 					color={'black'}
 					onChangeText={(e) => setQuery(e)}
@@ -205,7 +205,7 @@ export default function Query() {
 					data={data}
 				></CustomModal>
 			</VStack>
-			<Button position={'absolute'} bottom={60} right={5} borderRadius={50}>
+			<Button position={'absolute'} bottom={10} right={15} borderRadius={50}>
 				Create New
 			</Button>
 		</Box>

@@ -1,10 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import CustomView from '../../components/CustomView'
-import { Box, Heading, Image } from 'native-base'
-import CustomAddForm from '../../components/Form/CustomAddForm'
-import CustomButton from '../../components/Form/CustomButton'
-import { IMAGES } from '../../utils/constants'
+import { Box, Heading } from 'native-base';
+import { StyleSheet } from 'react-native';
+import CustomView from '../../components/CustomView';
+import CustomAddForm from '../../components/Form/CustomAddForm';
+import CustomButton from '../../components/Form/CustomButton';
+import { IMAGES } from '../../utils/constants';
 
 const AuthLayout = ({
 	heading = 'Signup',
@@ -14,7 +13,7 @@ const AuthLayout = ({
 	inputFields,
 	handleSubmit,
 }) => {
-	console.log({ IMAGES: IMAGES?.LOGIN })
+	console.log({ IMAGES: IMAGES?.LOGIN });
 	return (
 		<CustomView>
 			<Box width={'100%'}>
@@ -25,7 +24,12 @@ const AuthLayout = ({
 					alt='Alternate Text'
 					size='xl'
 				/> */}
-				<Heading color='primary.500' fontWeight='bold' margin={4} fontSize='4xl'>
+				<Heading
+					color="primary.500"
+					fontWeight="bold"
+					margin={4}
+					fontSize="4xl"
+				>
 					{' '}
 					{heading} !
 				</Heading>
@@ -33,12 +37,12 @@ const AuthLayout = ({
 
 				{heading === 'Login' && (
 					<Box>
-						<Heading size={'xs'} marginTop='5' textAlign={'center'}>
+						<Heading size={'xs'} marginTop="5" textAlign={'center'}>
 							{' '}
 							First Time here ?{' '}
 							<Heading
 								size={'xs'}
-								color='primary.700'
+								color="primary.700"
 								fontWeight={'bold'}
 								style={{ textDecorationLine: 'underline' }}
 							>
@@ -50,9 +54,9 @@ const AuthLayout = ({
 				<CustomButton text={btnText} onPress={handleSubmit} />
 			</Box>
 		</CustomView>
-	)
-}
+	);
+};
 
-export default AuthLayout
+export default AuthLayout;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
