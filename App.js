@@ -1,7 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { Box, extendTheme, NativeBaseProvider, ScrollView } from 'native-base';
-import { StyleSheet } from 'react-native';
-import Login from './screens/Authentication/Login';
+import { StatusBar } from 'expo-status-bar'
+import { Box, extendTheme, NativeBaseProvider, ScrollView } from 'native-base'
+import { StyleSheet } from 'react-native'
+import Login from './screens/Authentication/Login'
+import Home from './screens/Home'
 export default function App() {
 	const theme = extendTheme({
 		// backgroundColor: 'green.100',
@@ -22,7 +23,7 @@ export default function App() {
 		components: {
 			Text: {
 				baseStyle: (props) => {
-					const { colorScheme } = props;
+					const { colorScheme } = props
 
 					return {
 						_light: {
@@ -33,12 +34,12 @@ export default function App() {
 						},
 
 						// fontSize: 25,
-					};
+					}
 				},
 			},
 			Heading: {
 				baseStyle: (props) => {
-					const { colorScheme } = props;
+					const { colorScheme } = props
 
 					return {
 						_light: {
@@ -49,33 +50,34 @@ export default function App() {
 						},
 
 						// fontSize: 25,
-					};
+					}
 				},
 			},
 		},
-	});
+	})
 	return (
 		<>
 			<NativeBaseProvider theme={theme}>
 				<Box safeArea style={styles.container} h={'full'}>
-					<ScrollView width={'full'} h={'full'}>
-						{/* <Text>Open up App.js to sstart working on your app!</Text> */}
-						{/* <BookAppointment /> */}
-						{/* <Signup /> */}
-						<Login />
-					</ScrollView>
-					<StatusBar style="auto" />
+					{/* <ScrollView width={'full'} h={'full'}> */}
+					{/* <Text>Open up App.js to sstart working on your app!</Text> */}
+					{/* <BookAppointment /> */}
+					{/* <Signup /> */}
+					{/* <Login /> */}
+					<Home />
+					{/* </ScrollView> */}
+					<StatusBar style='auto' />
 				</Box>
 			</NativeBaseProvider>
 		</>
-	);
+	)
 }
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		// backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
+		// alignItems: 'center',
+		// justifyContent: 'center',
 	},
-});
+})
