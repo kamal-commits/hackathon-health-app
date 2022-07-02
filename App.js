@@ -70,10 +70,10 @@ export default function App() {
 				>
 					{/* <Text>Open up App.js to sstart working on your app!</Text> */}
 					{/* <BookAppointment /> */}
-					{/* <Login /> */}
+					<Login />
 					{/* <Query /> */}
 					{/* <Text>sdsadsad</Text> */}
-					<AddQuery />
+					{/* <AddQuery /> */}
 				</ScrollView>
 				<StatusBar style='auto' />
 			</Box>
