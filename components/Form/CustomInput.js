@@ -10,9 +10,8 @@ const CustomInput = ({
 	error,
 	value,
 }) => {
-	console.log({ type });
 	const handleCHange = (e) => {
-		setForm({ ...form, [name]: e.target.value });
+		setForm({ ...form, [name]: e });
 	};
 	return (
 		<View style={styles.container}>
@@ -26,7 +25,7 @@ const CustomInput = ({
 								// md: '25%',
 							}
 						}
-						onChange={handleCHange}
+						onChangeText={handleCHange}
 						type={type}
 						value={value}
 						// InputLeftElement={
