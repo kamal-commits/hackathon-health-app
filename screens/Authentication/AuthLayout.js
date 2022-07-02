@@ -22,7 +22,7 @@ const AuthLayout = ({
 					alt='Alternate Text'
 					size='xl'
 					width={'full'}
-					height={240}
+					height={230}
 					// marginTop='50'
 				/>
 			)}

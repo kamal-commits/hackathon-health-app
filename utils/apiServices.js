@@ -31,7 +31,7 @@ export const signup = (dto = {}) => {
 	}
 }
 
-export const login = (dto = {}) => {
+export const login = (dto = {}, navigation) => {
 	try {
 		console.log({ dto })
 		Axios.post(API.LOGIN, dto, {
@@ -47,6 +47,7 @@ export const login = (dto = {}) => {
 				const check = AsyncStorage.getItem('token')
 				console.log({ check })
 				showToast('User Logged In !')
+				navigation()
 			})
 			.catch((err) => {
 				console.log({ err: JSON.stringify(err) })
