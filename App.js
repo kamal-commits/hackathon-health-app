@@ -126,39 +126,8 @@ export default function App() {
 						component={Home}
 						options={customHeader('Home')}
 					/>
-					{/* <Stack.Screen name='' component={} /> */}
 				</Stack.Navigator>
-				{/* <Box
-					flex={1}
-					safeArea
-					//  style={styles.container}
-				>
-					<ScrollView
-						_contentContainerStyle={{ flex: 1 }}
-						flex={1}
-						width={'full'}
-						h={'full'}
-					>
-						{/* <Text>Open up App.js to sstart working on your app!</Text> */}
-				{/* <BookAppointment /> */}
-				{/* <Appointments /> */}
-				{/* <Signup /> */}
-				{/* <Query /> */}
-				{/* <Text>sdsadsad</Text> */}
-				{/* <AddQuery /> */}
-				{/* </ScrollView>
-					<StatusBar style='auto' />
-				// </Box> */}
 			</NativeBaseProvider>
 		</NavigationContainer>
 	)
 }
-
-// const styles = StyleSheet.create({
-// 	container: {
-// 		flex: 1,
-// 		// backgroundColor: '#fff',
-// 		alignItems: 'center',
-// 		justifyContent: 'center',
-// 	},
-// });
