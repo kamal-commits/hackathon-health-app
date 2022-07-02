@@ -1,11 +1,13 @@
 import { Box } from 'native-base';
 import { useState } from 'react';
 import { StyleSheet } from 'react-native';
+import { login } from '../../utils/apiServices';
 import AuthLayout from './AuthLayout';
+
 const Login = () => {
 	const [form, setForm] = useState({
-		email: '',
-		password: '',
+		email: 'kamal@gmsail.com',
+		password: 'password',
 	});
 	const inputFields = [
 		{ label: 'Email', value: form?.email, name: 'email' },
@@ -16,6 +18,10 @@ const Login = () => {
 			type: 'password',
 		},
 	];
+
+	const handleLogin = () => {
+		login(form);
+	};
 	return (
 		<Box h={'full'} alignItems="center">
 			<AuthLayout
@@ -24,6 +30,7 @@ const Login = () => {
 				inputFields={inputFields}
 				heading="Login"
 				btnText="Login"
+				handleSubmit={handleLogin}
 			/>
 		</Box>
 	);
