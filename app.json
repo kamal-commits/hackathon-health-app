@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "hackathon-health-app",
+    "slug": "hackathon-health-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
