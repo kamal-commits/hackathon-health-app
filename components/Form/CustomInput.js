@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View, TextInput } from 'react-native'
-import React from 'react'
-import { FormControl, Icon, Input, Stack, WarningOutlineIcon } from 'native-base'
+import { FormControl, Input, Stack, WarningOutlineIcon } from 'native-base';
+import { StyleSheet, View } from 'react-native';
 
 const CustomInput = ({
 	label,
@@ -11,14 +10,14 @@ const CustomInput = ({
 	error,
 	value,
 }) => {
-	console.log({ type })
+	console.log({ type });
 	const handleCHange = (e) => {
-		setForm({ ...form, [name]: e.target.value })
-	}
+		setForm({ ...form, [name]: e.target.value });
+	};
 	return (
 		<View style={styles.container}>
 			<FormControl isRequired>
-				<Stack mx='4'>
+				<Stack mx="4">
 					<FormControl.Label>{label}</FormControl.Label>
 					<Input
 						w={
@@ -47,16 +46,16 @@ const CustomInput = ({
 					{/* <FormControl.HelperText>
               Must be atleast 6 characters.
             </FormControl.HelperText> */}
-					<FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size='xs' />}>
+					<FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
 						{error}
 					</FormControl.ErrorMessage>
 				</Stack>
 			</FormControl>
 		</View>
-	)
-}
+	);
+};
 
-export default CustomInput
+export default CustomInput;
 
 const styles = StyleSheet.create({
 	inputField: {
@@ -67,4 +66,4 @@ const styles = StyleSheet.create({
 	container: {
 		// marginTop: 15,
 	},
-})
+});
