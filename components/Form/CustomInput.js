@@ -1,5 +1,12 @@
-import { FormControl, Input, Stack, WarningOutlineIcon } from 'native-base';
-import { StyleSheet, View } from 'react-native';
+import {
+	Box,
+	FormControl,
+	Input,
+	Stack,
+	TextArea,
+	WarningOutlineIcon,
+} from 'native-base'
+import { StyleSheet, View } from 'react-native'
 
 const CustomInput = ({
 	label,
@@ -9,53 +16,45 @@ const CustomInput = ({
 	setForm,
 	error,
 	value,
+	inputType = 'text',
 }) => {
-	console.log({ type });
+	// console.log({ type })
 	const handleCHange = (e) => {
-		setForm({ ...form, [name]: e.target.value });
-	};
+		setForm({ ...form, [name]: e.target.value })
+	}
 	return (
-		<View style={styles.container}>
+		<Box style={styles.container}>
 			<FormControl isRequired>
-				<Stack mx="4">
+				<Stack mx='4'>
 					<FormControl.Label>{label}</FormControl.Label>
-					<Input
-						w={
-							{
-								// base: '75%',
-								// md: '25%',
-							}
-						}
-						onChange={handleCHange}
-						type={type}
-						value={value}
-						// InputLeftElement={
-						//   <Icon
-						//     as={<MaterialIcons name="person" />}
-						//     size={5}
-						//     ml="2"
-						//     color="muted.400"
-						//   />
-						// }
-						// variant='rounded'
-						size={'xl'}
-						// placeholder={label}
-						// style={styles.inputField}
-					/>
-					{/* <Input type="password" defaultValue="12345" placeholder="password" /> */}
-					{/* <FormControl.HelperText>
-              Must be atleast 6 characters.
-            </FormControl.HelperText> */}
-					<FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
+					{inputType === 'text' ? (
+						<Input
+							onChange={handleCHange}
+							type={type}
+							value={value}
+							variant='underlined'
+							size={'xl'}
+						/>
+					) : (
+						<TextArea
+							onChange={handleCHange}
+							type={type}
+							value={value}
+							variant='underlined'
+							size={'xl'}
+						/>
+					)}
+
+					<FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size='xs' />}>
 						{error}
 					</FormControl.ErrorMessage>
 				</Stack>
 			</FormControl>
-		</View>
-	);
-};
+		</Box>
+	)
+}
 
-export default CustomInput;
+export default CustomInput
 
 const styles = StyleSheet.create({
 	inputField: {
@@ -66,4 +65,4 @@ const styles = StyleSheet.create({
 	container: {
 		// marginTop: 15,
 	},
-});
+})

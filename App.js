@@ -1,6 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { Box, extendTheme, NativeBaseProvider, ScrollView } from 'native-base';
-import Login from './screens/Authentication/Login';
+import { StatusBar } from 'expo-status-bar'
+import { Box, extendTheme, NativeBaseProvider, ScrollView } from 'native-base'
+import AddQuery from './screens/AddQuery'
+import Login from './screens/Authentication/Login'
+import Query from './screens/Query'
 export default function App() {
 	const theme = extendTheme({
 		// backgroundColor: 'green.100',
@@ -21,7 +23,7 @@ export default function App() {
 		components: {
 			Text: {
 				baseStyle: (props) => {
-					const { colorScheme } = props;
+					const { colorScheme } = props
 
 					return {
 						_light: {
@@ -32,12 +34,12 @@ export default function App() {
 						},
 
 						// fontSize: 25,
-					};
+					}
 				},
 			},
 			Heading: {
 				baseStyle: (props) => {
-					const { colorScheme } = props;
+					const { colorScheme } = props
 
 					return {
 						_light: {
@@ -48,11 +50,11 @@ export default function App() {
 						},
 
 						// fontSize: 25,
-					};
+					}
 				},
 			},
 		},
-	});
+	})
 	return (
 		<NativeBaseProvider theme={theme}>
 			<Box
@@ -68,14 +70,15 @@ export default function App() {
 				>
 					{/* <Text>Open up App.js to sstart working on your app!</Text> */}
 					{/* <BookAppointment /> */}
-					<Login />
-
+					{/* <Login /> */}
+					{/* <Query /> */}
 					{/* <Text>sdsadsad</Text> */}
+					<AddQuery />
 				</ScrollView>
-				<StatusBar style="auto" />
+				<StatusBar style='auto' />
 			</Box>
 		</NativeBaseProvider>
-	);
+	)
 }
 
 // const styles = StyleSheet.create({

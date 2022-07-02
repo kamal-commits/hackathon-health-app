@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 import React from 'react'
 import {
+	Box,
 	CheckIcon,
 	FormControl,
 	Icon,
@@ -19,12 +20,13 @@ const CustomSelect = ({
 	error,
 	options,
 	value,
+	disabled,
 }) => {
 	const handleCHange = (e) => {
 		setForm({ ...form, [name]: e })
 	}
 	return (
-		<View style={styles.container}>
+		<Box style={styles.container}>
 			<FormControl isRequired>
 				<Stack mx='4'>
 					<FormControl.Label>{label}</FormControl.Label>
@@ -39,10 +41,11 @@ const CustomSelect = ({
 						}}
 						mt={1}
 						onValueChange={handleCHange}
-						// variant='rounded'
+						variant='underlined'
+						isDisabled={disabled}
 					>
 						{options.map((val) => (
-							<Select.Item label={val} value={val} />
+							<Select.Item label={val} value={val} key={val} />
 						))}
 					</Select>
 					<FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size='xs' />}>
@@ -50,7 +53,7 @@ const CustomSelect = ({
 					</FormControl.ErrorMessage>
 				</Stack>
 			</FormControl>
-		</View>
+		</Box>
 	)
 }
 
