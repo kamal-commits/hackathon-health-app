@@ -1,14 +1,14 @@
-import { extendTheme, NativeBaseProvider } from 'native-base';
+import { extendTheme, NativeBaseProvider, Text } from 'native-base';
 import { StyleSheet } from 'react-native';
-import Home from './pages/Home';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
 	const theme = extendTheme({
-		backgroundColor: 'green.100',
+		// backgroundColor: 'green.100',
 		colors: {
 			// Add new color
 			primary: {
-				green: '#097969',
+				10: '#097969',
 			},
 			// Redefinig only one shade, rest of the color will remain same.
 			amber: {
@@ -19,11 +19,29 @@ export default function App() {
 			// Changing initialColorMode to 'dark'
 			initialColorMode: 'dark',
 		},
+		components: {
+			Text: {
+				baseStyle: (props) => {
+					const { colorScheme } = props;
+
+					return {
+						_light: {
+							color: colorScheme[500],
+						},
+						_dark: {
+							color: 'amber.500',
+						},
+					};
+				},
+			},
+		},
 	});
 
 	return (
 		<NativeBaseProvider theme={theme}>
-			<Home style={{ border: '1px solid red' }} />
+			<SafeAreaView>
+				<Text colorScheme={'red'}>Hello</Text>
+			</SafeAreaView>
 		</NativeBaseProvider>
 	);
 }
