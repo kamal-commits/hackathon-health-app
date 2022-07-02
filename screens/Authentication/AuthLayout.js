@@ -14,21 +14,39 @@ const AuthLayout = ({
 	inputFields,
 	handleSubmit,
 }) => {
+	console.log({ IMAGES: IMAGES?.LOGIN })
 	return (
 		<CustomView>
 			<Box width={'100%'}>
-				<Image
+				{/* <Image
 					source={{
-						uri: IMAGES.LOGIN,
+						uri: IMAGES.USER,
 					}}
 					alt='Alternate Text'
 					size='xl'
-				/>
+				/> */}
 				<Heading color='primary.500' fontWeight='bold' margin={4} fontSize='4xl'>
 					{' '}
 					{heading} !
 				</Heading>
 				<CustomAddForm form={form} setForm={setForm} array={inputFields} />
+
+				{heading === 'Login' && (
+					<Box>
+						<Heading size={'xs'} marginTop='5' textAlign={'center'}>
+							{' '}
+							First Time here ?{' '}
+							<Heading
+								size={'xs'}
+								color='primary.700'
+								fontWeight={'bold'}
+								style={{ textDecorationLine: 'underline' }}
+							>
+								Register Here{' '}
+							</Heading>
+						</Heading>
+					</Box>
+				)}
 				<CustomButton text={btnText} onPress={handleSubmit} />
 			</Box>
 		</CustomView>

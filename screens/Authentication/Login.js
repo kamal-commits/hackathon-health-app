@@ -10,7 +10,7 @@ const Login = () => {
 	})
 	const inputFields = [
 		{ label: 'Email', value: form?.email, name: 'email' },
-		{ label: 'Password', value: form?.password, name: 'password' },
+		{ label: 'Password', value: form?.password, name: 'password', type: 'password' },
 	]
 	return (
 		<View

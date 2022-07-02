@@ -19,6 +19,7 @@ const CustomAddForm = ({ array = [], form, setForm }) => {
 								form={form}
 								setForm={setForm}
 								label={val?.label}
+								type={val?.type}
 							/>
 						)}
 						{val?.options && !check.includes(val?.type) && (

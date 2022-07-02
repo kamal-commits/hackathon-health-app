@@ -11,6 +11,7 @@ const CustomInput = ({
 	error,
 	value,
 }) => {
+	console.log({ type })
 	const handleCHange = (e) => {
 		setForm({ ...form, [name]: e.target.value })
 	}
