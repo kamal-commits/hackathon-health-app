@@ -1,7 +1,8 @@
 import { Box } from 'native-base'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { StyleSheet } from 'react-native'
 import { login } from '../../utils/apiServices'
+import { getToken } from '../../utils/constants'
 import AuthLayout from './AuthLayout'
 
 const Login = ({ navigation }) => {
@@ -19,6 +20,12 @@ const Login = ({ navigation }) => {
 			type: 'password',
 		},
 	]
+	// useEffect(async () => {
+	// 	const token = await getToken()
+	// 	if (getToken()) {
+	// 		navigation.navigate('Home')
+	// 	}
+	// }, [getToken()])
 
 	const handleLogin = () => {
 		login(form, navigation.navigate('Home'))

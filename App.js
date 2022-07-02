@@ -92,6 +92,13 @@ export default function App() {
 			},
 		},
 	})
+
+	// useEffect(async() => {
+	// if(token){
+
+	// }
+	// }, [token])
+
 	return (
 		<NavigationContainer>
 			<NativeBaseProvider theme={theme}>

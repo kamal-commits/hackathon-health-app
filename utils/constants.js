@@ -31,3 +31,9 @@ export const showToast = (message, type) => {
 		// }
 		()
 }
+
+export const getToken = async () => {
+	const check = await AsyncStorage.getItem('token')
+	console.log({ check })
+	return check
+}
