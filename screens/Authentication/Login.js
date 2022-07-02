@@ -2,16 +2,21 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import CustomView from '../../components/CustomView'
 import AuthLayout from './AuthLayout'
+import { login } from '../../utils/apiServices'
 
 const Login = () => {
 	const [form, setForm] = useState({
-		email: '',
-		password: '',
+		email: 'kamal@gmsail.com',
+		password: 'password',
 	})
 	const inputFields = [
 		{ label: 'Email', value: form?.email, name: 'email' },
 		{ label: 'Password', value: form?.password, name: 'password', type: 'password' },
 	]
+
+	const handleLogin = () => {
+		login(form)
+	}
 	return (
 		<View
 			style={
@@ -29,6 +34,7 @@ const Login = () => {
 				inputFields={inputFields}
 				heading='Login'
 				btnText='Login'
+				handleSubmit={handleLogin}
 			/>
 		</View>
 	)

@@ -6,6 +6,7 @@ import { IMAGES } from '../../utils/constants'
 import CustomButton from '../../components/Form/CustomButton'
 import CustomAddForm from '../../components/Form/CustomAddForm'
 import AuthLayout from './AuthLayout'
+import { signup } from '../../utils/apiServices'
 
 const Signup = () => {
 	const [userType, setUserType] = useState('DOCTOR')
@@ -31,7 +32,12 @@ const Signup = () => {
 		{ label: 'Email', value: form?.email, name: 'email' },
 		{ label: 'Phone Number', value: form?.phoneNumber, name: 'phoneNumber' },
 		{ label: 'Age', value: form?.age, name: 'age' },
-		{ label: 'Gender', value: form?.gender, name: 'gender' },
+		{
+			label: 'Gender',
+			value: form?.gender,
+			name: 'gender',
+			options: ['MALE', 'FEMALE', 'OTHERS'],
+		},
 
 		{ label: 'Password', value: form?.password, name: 'password', type: 'password' },
 	]
@@ -44,6 +50,11 @@ const Signup = () => {
 			options: ['A', 'B', 'C'],
 		})
 	}
+
+	const handleSignup = async () => {
+		signup(form)
+	}
+
 	return (
 		<CustomView>
 			<Box
@@ -54,7 +65,12 @@ const Signup = () => {
 				style={{ padding: 10 }}
 			>
 				{formStep ? (
-					<AuthLayout form={form} setForm={setForm} inputFields={inputFields} />
+					<AuthLayout
+						form={form}
+						setForm={setForm}
+						inputFields={inputFields}
+						handleSubmit={handleSignup}
+					/>
 				) : (
 					<>
 						<HStack space={6} justifyContent='space-between'>
