@@ -31,7 +31,7 @@ const AddQuery = () => {
 			value: form?.doctorId,
 			name: 'doctorId',
 			options: ['A', 'B', 'C'],
-			visible: form?.department ? 'true' : 'false',
+			visible: form?.visiblity === 'PRIVATE' && form?.department ? 'true' : 'false',
 		},
 		{ label: 'Query', value: form?.query, name: 'query', inputType: 'textArea' },
 	]
