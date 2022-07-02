@@ -1,7 +1,10 @@
 import { StatusBar } from 'expo-status-bar'
 import { Box, extendTheme, NativeBaseProvider, ScrollView } from 'native-base'
 import AddQuery from './screens/AddQuery'
+import Appointments from './screens/Appointments'
 import Login from './screens/Authentication/Login'
+import Signup from './screens/Authentication/Signup'
+import BookAppointment from './screens/BookAppointment'
 import Query from './screens/Query'
 export default function App() {
 	const theme = extendTheme({
@@ -53,6 +56,22 @@ export default function App() {
 					}
 				},
 			},
+			Text: {
+				baseStyle: (props) => {
+					const { colorScheme } = props
+
+					return {
+						_light: {
+							color: colorScheme[500],
+						},
+						_dark: {
+							color: 'amber.500',
+						},
+
+						// fontSize: 25,
+					}
+				},
+			},
 		},
 	})
 	return (
@@ -70,7 +89,8 @@ export default function App() {
 				>
 					{/* <Text>Open up App.js to sstart working on your app!</Text> */}
 					{/* <BookAppointment /> */}
-					<Login />
+					<Appointments />
+					{/* <Signup /> */}
 					{/* <Query /> */}
 					{/* <Text>sdsadsad</Text> */}
 					{/* <AddQuery /> */}

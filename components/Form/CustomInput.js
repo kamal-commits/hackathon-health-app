@@ -31,8 +31,9 @@ const CustomInput = ({
 							onChangeText={handleCHange}
 							type={type}
 							value={value}
-							variant='underlined'
+							variant={label === 'Search' ? 'outline' : 'underlined'}
 							size={'lg'}
+							placeholder={label === 'Search' ? label : ''}
 						/>
 					) : (
 						<TextArea

@@ -17,8 +17,9 @@ export const showToast = (message, type) => {
 	console.log({ message, type })
 	const toast = useToast()
 	const renderColor = type && type === 'error' ? 'red.500' : 'emerald.500'
-	toast.show(
-		{ description: message }
+	toast
+		.show
+		// { description: message }
 		//   {
 		// 	// render: () => {
 		// 	// 	return (
@@ -28,5 +29,5 @@ export const showToast = (message, type) => {
 		// 	// 	)
 		// 	// },
 		// }
-	)
+		()
 }

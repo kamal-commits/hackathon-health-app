@@ -1,24 +1,19 @@
-import { Box } from 'native-base';
-import { StyleSheet } from 'react-native';
+import { Box, ScrollView, View } from 'native-base'
+import { StyleSheet } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 const CustomView = ({ children, style = {} }) => {
 	return (
-		<Box
-			borderWidth={2}
-			borderColor={'red.500'}
-			h={'full'}
-			w={'full'}
-			alignItems="center"
-		>
-			{children}
-		</Box>
-	);
-};
+		<ScrollView>
+			<View style={[styles.root, style]}>{children}</View>
+		</ScrollView>
+	)
+}
 
-export default CustomView;
+export default CustomView
 
 const styles = StyleSheet.create({
 	root: {
 		width: '100%',
 		// flex: 1,
 	},
-});
+})

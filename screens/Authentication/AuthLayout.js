@@ -14,16 +14,18 @@ const AuthLayout = ({
 }) => {
 	return (
 		<Box h={'full'} width={'100%'}>
-			<Image
-				source={{
-					uri: IMAGES.LOGIN,
-				}}
-				alt='Alternate Text'
-				size='xl'
-				width={'full'}
-				height={240}
-				// marginTop='50'
-			/>
+			{heading === 'Login' && (
+				<Image
+					source={{
+						uri: IMAGES.LOGIN,
+					}}
+					alt='Alternate Text'
+					size='xl'
+					width={'full'}
+					height={240}
+					// marginTop='50'
+				/>
+			)}
 			<Heading color='primary.500' fontWeight='bold' margin={4} fontSize='4xl'>
 				{' '}
 				{heading} !

@@ -1,8 +1,10 @@
 import { API } from './API'
 import Axios from 'axios'
-import { showToast } from './constants'
+
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import useHook from '../components/useHook'
 export const signup = (dto = {}) => {
+	const { showToast } = useHook()
 	try {
 		console.log({ dto })
 		Axios.post(API.SIGNUP, dto, {
@@ -45,6 +47,30 @@ export const login = (dto = {}) => {
 				const check = AsyncStorage.getItem('token')
 				console.log({ check })
 				showToast('User Logged In !')
+			})
+			.catch((err) => {
+				console.log({ err: JSON.stringify(err) })
+			})
+	} catch (error) {
+		console.log({ error })
+	}
+}
+export const bookAppointment = (dto = {}) => {
+	try {
+		console.log({ dto })
+		Axios.post(API.BOOK_APPOINTMENT, dto, {
+			headers: {
+				'content-type': 'application/json',
+				Accept: 'application/json',
+			},
+		})
+			.then((res) => {
+				console.log({ RES: res?.data?.data })
+				// AsyncStorage.setItem('user', JSON.stringify(user))
+				// AsyncStorage.setItem('token', JSON.stringify(token))
+				// const check = AsyncStorage.getItem('token')
+				// console.log({ check })
+				showToast('Appointment Booked Successfully !')
 			})
 			.catch((err) => {
 				console.log({ err: JSON.stringify(err) })
