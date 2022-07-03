@@ -8,5 +8,6 @@ export const API = {
 	BOOK_APPOINTMENT: `${backendUrl}/user/bookAppointment`,
 	UPDATE_APPOINTMENT: `${backendUrl}/user/updateAppointment`,
 	GET_APPOINTMENTS: `${backendUrl}/user/getAppointments`,
+	GET_ALL_DOCTORS: `${backendUrl}/user/doctors`,
 	GET_QUERIES: `${backendUrl}/query/get`,
 }

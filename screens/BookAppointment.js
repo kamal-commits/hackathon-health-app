@@ -2,10 +2,14 @@ import { StyleSheet, Text } from 'react-native'
 import React, { useState } from 'react'
 import CustomView from '../components/CustomView'
 import DoctorProfileCard from '../components/Card/DoctorProfileCard'
-import { VStack, Box, HStack } from 'native-base'
+import axios from 'axios'
+import { VStack, Box, HStack, Pressable } from 'native-base'
 import moment from 'moment'
 import CustomButton from '../components/Form/CustomButton'
-const DocDescription = () => {
+import { API } from '../utils/API'
+import CustomSelect from '../components/Form/CustomSelect'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+const DocDescription = ({ name, department }) => {
 	return (
 		<Box style={styles.docDescription}>
 			<VStack space={3}>
@@ -41,11 +45,11 @@ const ScheduleAppointment = ({
 				<HStack justifyContent={'space-between'}>
 					{array.map((val, i) => {
 						return (
-							<Box
+							<Pressable
 								style={
 									state === i ? [styles.dateBox, styles.activeTab] : styles.dateBox
 								}
-								onTouchStart={() => {
+								onPress={() => {
 									setState(i),
 										setForm({
 											...form,
@@ -75,7 +79,7 @@ const ScheduleAppointment = ({
 										{val?.number}
 									</Text>
 								</VStack>
-							</Box>
+							</Pressable>
 						)
 					})}
 				</HStack>
@@ -91,10 +95,47 @@ const BookAppointment = () => {
 	const [dateIndex, setDateIndex] = useState(0)
 	const [timeIndex, setTimeIndex] = useState(0)
 	const [form, setForm] = useState({
-		appointmentDate: '',
-		appointmentFromTime: '',
+		appointmentDate: dateArray[0],
+		appointmentFromTime: timeArray[0],
 	})
+
+	const [doctors, setDoctors] = useState([])
 	console.log({ form })
+
+	const handleAppointment = async () => {
+		const token = await AsyncStorage.getItem('token')
+
+		const { data } = await axios.post(
+			API.BOOK_APPOINTMENT,
+			{
+				...form,
+				appointmentToTime: moment(form?.appointmentFromTime)
+					.add(1, 'hour')
+					.toISOString(),
+			},
+			{
+				headers: {
+					Authorization: `Bearer ${JSON.parse(token)}`,
+				},
+			}
+		)
+	}
+
+	const fetchDocs = async () => {
+		const token = await AsyncStorage.getItem('token')
+
+		const { data } = await axios.get(API.GET_ALL_DOCTORS, {
+			headers: {
+				Authorization: `Bearer ${JSON.parse(token)}`,
+			},
+		})
+		console.log({ data })
+		setDoctors(data?.data ?? [])
+	}
+
+	React.useEffect(() => {
+		fetchDocs()
+	}, [])
 
 	React.useEffect(() => {
 		if (dateIndex) {
@@ -120,27 +161,52 @@ const BookAppointment = () => {
 		})
 	}
 
+	let tempArray = doctors && doctors.filter((val) => form?.doctorId === val?._id)
+	console.log({ tempArray })
+
+	// doctor =
+
 	return (
 		<CustomView style={styles.root}>
-			<DoctorProfileCard />
-			<DocDescription />
-			<ScheduleAppointment
-				array={dateArray}
-				state={dateIndex}
-				setState={setDateIndex}
-				form={form}
-				setForm={setForm}
-			/>
-			<ScheduleAppointment
-				text='Choose Time'
-				array={timeArray}
-				state={timeIndex}
-				setState={setTimeIndex}
-				form={form}
-				setForm={setForm}
-			/>
+			<Box marginBottom={'5'}>
+				<CustomSelect
+					label='Choose Doctor'
+					options={doctors}
+					fieldName='name'
+					fieldValue='_id'
+					value={form?.doctorId}
+					form={form}
+					setForm={setForm}
+					name='doctorId'
+				/>
+			</Box>
+			{form?.doctorId && tempArray.length > 0 && (
+				<>
+					<DoctorProfileCard
+						name={tempArray[0]?.name}
+						department={tempArray[0]?.department}
+					/>
+					<DocDescription />
+					<ScheduleAppointment
+						array={dateArray}
+						state={dateIndex}
+						setState={setDateIndex}
+						form={form}
+						setForm={setForm}
+					/>
+					<ScheduleAppointment
+						text='Choose Time'
+						array={timeArray}
+						state={timeIndex}
+						setState={setTimeIndex}
+						form={form}
+						setForm={setForm}
+					/>
+				</>
+			)}
+
 			{/* < */}
-			<CustomButton text='Book Appointment' />
+			<CustomButton text='Book Appointment' onPress={handleAppointment} />
 		</CustomView>
 	)
 }

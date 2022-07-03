@@ -21,6 +21,8 @@ const CustomSelect = ({
 	options,
 	value,
 	disabled,
+	fieldName,
+	fieldValue,
 }) => {
 	const handleCHange = (e) => {
 		setForm({ ...form, [name]: e })
@@ -45,7 +47,11 @@ const CustomSelect = ({
 						isDisabled={disabled}
 					>
 						{options.map((val) => (
-							<Select.Item label={val} value={val} key={val} />
+							<Select.Item
+								label={fieldName ? val[fieldName] : val}
+								value={fieldValue ? val[fieldValue] : val}
+								key={val}
+							/>
 						))}
 					</Select>
 					<FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size='xs' />}>

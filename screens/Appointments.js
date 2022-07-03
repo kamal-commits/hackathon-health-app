@@ -63,17 +63,16 @@ const Appointments = ({ navigation }) => {
 				setStatus={setStatus}
 			/>
 
-			{data && data.length > 0
-				? data.map((val) => {
-						return (
-							<DetailCard
-								action
-								onPress={() => {
-									setIsOpen(true), setAppointmentId(val?._id)
-								}}
-								status={val?.status}
-								navigation={() => navigation.navigate('BookAppointment')}
-							>
+			<DetailCard
+				action
+				onPress={() => {
+					setIsOpen(true), setAppointmentId(val?._id)
+				}}
+				navigation={() => navigation.navigate('BookAppointment')}
+			>
+				{data && data.length > 0
+					? data.map((val) => {
+							return (
 								<HStack space={3}>
 									<Box>
 										<Avatar source={{ uri: IMAGES.LOGIN }} size='lg' />
@@ -100,10 +99,10 @@ const Appointments = ({ navigation }) => {
 
 									{/* </VStack> */}
 								</HStack>
-							</DetailCard>
-						)
-				  })
-				: null}
+							)
+					  })
+					: null}
+			</DetailCard>
 		</Box>
 	)
 }

@@ -102,7 +102,7 @@ export default function App() {
 	return (
 		<NavigationContainer>
 			<NativeBaseProvider theme={theme}>
-				<Stack.Navigator initialRouteName='Appointments'>
+				<Stack.Navigator initialRouteName='Login'>
 					<Stack.Screen
 						name={'Login'}
 						component={Login}

@@ -4,7 +4,7 @@ import CustomView from '../CustomView'
 import { Box, HStack, Image, VStack, Text, Avatar, Spacer } from 'native-base'
 import { COLORS } from '../../utils/constants'
 
-const DoctorProfileCard = () => {
+const DoctorProfileCard = ({ name, department }) => {
 	let overviewText = [
 		{ number: '24 Year', text: 'Experience' },
 		{ number: `${100}+`, text: 'Reviews' },
@@ -25,8 +25,8 @@ const DoctorProfileCard = () => {
 							style={styles.image}
 						/>
 						<VStack>
-							<Text style={styles.text}>{'Name'}</Text>
-							<Text style={[styles.text, styles.text2]}>{'Department'}</Text>
+							<Text style={styles.text}>{name}</Text>
+							<Text style={[styles.text, styles.text2]}>{department}</Text>
 
 							<Box>
 								<Text style={[styles.text, styles.text2, styles.text3]}>
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
 	text: {
 		color: 'white',
 		fontWeight: 'bold',
-		fontSize: 24,
+		fontSize: 20,
 	},
 	text2: {
 		fontSize: 16,

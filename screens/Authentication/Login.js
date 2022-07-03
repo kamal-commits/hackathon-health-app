@@ -7,7 +7,7 @@ import AuthLayout from './AuthLayout'
 
 const Login = ({ navigation }) => {
 	const [form, setForm] = useState({
-		email: 'kamal@gmsail.com',
+		email: 'kamawla@gmail.com',
 		password: 'password',
 	})
 	console.log('form value ', form)
