@@ -15,7 +15,7 @@ const AuthLayout = ({
 }) => {
 	return (
 		<Box width={'100%'}>
-			{heading === 'Login' && (
+			{heading === 'Login' ? (
 				<Image
 					source={{
 						uri: IMAGES.LOGIN,
@@ -23,20 +23,21 @@ const AuthLayout = ({
 					alt='Alternate Text'
 					size='xl'
 					width={'full'}
-					height={250}
-					// marginTop='50'
+					height={300}
+					marginTop='50'
+					borderRadius={25}
 				/>
-			)}
-			{heading && (
+			) : null}
+			{heading ? (
 				<Heading color='primary.500' fontWeight='bold' margin={4} fontSize='4xl'>
 					{heading} !
 				</Heading>
-			)}
+			) : null}
 			<Box margin={!heading ? 4 : 0}>
 				<CustomAddForm form={form} setForm={setForm} array={inputFields} />
 			</Box>
 
-			{heading === 'Login' && (
+			{heading === 'Login' ? (
 				<Box>
 					<Heading size={'xs'} marginTop='5' textAlign={'center'} color='black'>
 						{' '}
@@ -52,7 +53,7 @@ const AuthLayout = ({
 						</Heading>
 					</Heading>
 				</Box>
-			)}
+			) : null}
 			<CustomButton text={btnText} onPress={handleSubmit} />
 		</Box>
 	)

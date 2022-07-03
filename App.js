@@ -106,7 +106,7 @@ export default function App() {
 					<Stack.Screen
 						name={'Login'}
 						component={Login}
-						options={customHeader('Login')}
+						options={(customHeader('Login'), { headerShown: false })}
 					/>
 					<Stack.Screen
 						name='Signup'
@@ -131,9 +131,10 @@ export default function App() {
 					<Stack.Screen
 						name='Home'
 						component={Home}
-						options={customHeader('Home')}
+						options={(customHeader('Home'), { headerShown: false })}
 					/>
 				</Stack.Navigator>
+				<StatusBar />
 			</NativeBaseProvider>
 		</NavigationContainer>
 	)

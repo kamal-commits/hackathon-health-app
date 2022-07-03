@@ -8,9 +8,9 @@ import CustomAddForm from '../../components/Form/CustomAddForm'
 import AuthLayout from './AuthLayout'
 import { signup } from '../../utils/apiServices'
 
-const Signup = ({ navigation }) => {
+const Signup = () => {
 	const [userType, setUserType] = useState('DOCTOR')
-	const [formStep, setFormStep] = useState(true)
+	const [formStep, setFormStep] = useState(false)
 	const [form, setForm] = useState({
 		name: '',
 		email: '',
@@ -56,7 +56,7 @@ const Signup = ({ navigation }) => {
 	}
 
 	return (
-		<CustomView>
+		<CustomView scroll>
 			<Box
 				width={'100%'}
 				// flex={1}

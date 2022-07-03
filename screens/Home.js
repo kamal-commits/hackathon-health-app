@@ -9,6 +9,7 @@ import {
 	Pressable,
 	VStack,
 } from 'native-base'
+import CustomView from '../components/CustomView'
 
 const ModuleCad = ({ image1, text1, image2, text2, navigation, route1, route2 }) => {
 	return (
@@ -66,18 +67,19 @@ const Home = ({ navigation }) => {
 		},
 	]
 	return (
-		<Box w='full'>
+		<CustomView>
 			<VStack>
 				{/* Detail Section */}
 				<VStack
-					height={'250'}
+					height={'300'}
 					bg='primary.800'
 					padding={'5'}
 					space={1}
 					borderBottomRightRadius={20}
 					borderBottomLeftRadius={20}
+					paddingTop={75}
 				>
-					<Heading size='xl' style={styles.textWhite} paddingTop={10}>
+					<Heading size='xl' style={styles.textWhite}>
 						Hey Kamal
 					</Heading>
 					<Heading size='md' style={styles.textWhite}>
@@ -94,7 +96,7 @@ const Home = ({ navigation }) => {
 				</Box>
 				{/*  Card Section */}
 			</VStack>
-		</Box>
+		</CustomView>
 	)
 }
 
