@@ -102,7 +102,7 @@ export default function App() {
 	return (
 		<NavigationContainer>
 			<NativeBaseProvider theme={theme}>
-				<Stack.Navigator initialRouteName='Login'>
+				<Stack.Navigator initialRouteName='Appointments'>
 					<Stack.Screen
 						name={'Login'}
 						component={Login}
@@ -112,6 +112,11 @@ export default function App() {
 						name='Signup'
 						component={Signup}
 						options={customHeader('Signup')}
+					/>
+					<Stack.Screen
+						name='BookAppointment'
+						component={BookAppointment}
+						options={customHeader('BookAppointment')}
 					/>
 					<Stack.Screen
 						name='Appointments'

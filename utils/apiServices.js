@@ -32,7 +32,7 @@ export const signup = (dto = {}) => {
 	}
 }
 
-export const login = (dto = {}) => {
+export const login = (dto = {}, navigate) => {
 	try {
 		console.log({ dto })
 		console.log('login API')
@@ -46,11 +46,14 @@ export const login = (dto = {}) => {
 				const user = res?.data?.data
 				const token = res?.data?.token
 				console.log({ RES: res?.data?.data })
-				AsyncStorage.setItem('user', JSON.stringify(user))
-				AsyncStorage.setItem('token', JSON.stringify(token))
-				const check = await AsyncStorage.getItem('token')
-				console.log({ check })
-				// showToast("User Logged In !");
+				if (res?.status === 200) {
+					AsyncStorage.setItem('user', JSON.stringify(user))
+					AsyncStorage.setItem('token', JSON.stringify(token))
+					const check = await AsyncStorage.getItem('token')
+					console.log({ check })
+					// showToast("User Logged In !");
+					navigate
+				}
 			})
 			.catch((err) => {
 				console.log({ err: JSON.stringify(err.message) })

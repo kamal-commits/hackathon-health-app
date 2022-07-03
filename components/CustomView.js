@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 const CustomView = ({ children, style = {}, scroll = false }) => {
 	return (
-		<Box safeArea>
+		<Box safeArea={scroll ? false : true}>
 			{scroll ? (
 				<ScrollView>
 					<Box style={[styles.root, style]}>{children}</Box>

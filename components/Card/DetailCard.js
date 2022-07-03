@@ -13,10 +13,11 @@ import {
 import CustomInput from '../Form/CustomInput'
 import CustomHeading from '../Form/CustomHeading'
 import Status from '../Status'
+import CustomButton from '../Form/CustomButton'
 
-const DetailCard = ({ children }) => {
+const DetailCard = ({ children, action = false, onPress, status, navigation }) => {
 	return (
-		<Box position={'relative'} w={'full'}>
+		<Box position={'relative'} w={'full'} h={'full'}>
 			{/* <CustomHeading heading='Appointments' /> */}
 
 			<Box
@@ -61,12 +62,16 @@ const DetailCard = ({ children }) => {
 								alignItems='center'
 							>
 								<VStack>{children}</VStack>
-								<Status status='Pending' />
+								{status === 'PENDING' ? (
+									<Button onPress={onPress}>Action</Button>
+								) : (
+									<Status status={status} />
+								)}
 							</Flex>
 						</Pressable>
 					</Box>
 				</VStack>
-				{/* <Button
+				<Button
 					position={'absolute'}
 					bottom={10}
 					right={15}
@@ -74,9 +79,10 @@ const DetailCard = ({ children }) => {
 					// width='xs'
 					width={60}
 					height={60}
+					onPress={navigation}
 				>
 					<AddIcon color='white' />
-				</Button> */}
+				</Button>
 			</Box>
 		</Box>
 	)

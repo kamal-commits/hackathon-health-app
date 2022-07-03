@@ -15,6 +15,7 @@ import {
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import Status from '../components/Status'
+import { API } from '../utils/API'
 const data = [
 	{
 		title: 'Pain in heart',
@@ -182,6 +183,29 @@ export default function Query({ navigation }) {
 	const [query, setQuery] = React.useState('')
 	const [data, setData] = React.useState(null)
 	const [modalVisible, setModalVisible] = React.useState(false)
+
+	const [allData, setAllData] = React.useState(false)
+	console.log({ allData })
+
+	const fetchData = async () => {
+		try {
+			const token = await AsyncStorage.getItem('token')
+			console.log('token', token)
+			let result = await axios.get(API.GET_QUERIES, {
+				headers: {
+					Authorization: `Bearer ${JSON.parse(token)}`,
+				},
+			})
+
+			console.log({ result })
+			setAllData(result.data.data)
+		} catch (err) {
+			console.log({ err: JSON.stringify(err) })
+		}
+	}
+	React.useEffect(() => {
+		fetchData()
+	}, [])
 	return (
 		<Box
 			nativeID='11111'

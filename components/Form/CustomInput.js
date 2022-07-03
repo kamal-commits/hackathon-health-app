@@ -19,7 +19,11 @@ const CustomInput = ({
 	inputType = 'text',
 }) => {
 	const handleCHange = (e) => {
-		setForm({ ...form, [name]: e })
+		if (name) {
+			setForm({ ...form, [name]: e })
+		} else {
+			setForm(e)
+		}
 	}
 	return (
 		<Box style={styles.container}>
